@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+group = 'yejunho10.magicplugin'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven { url = "https://repo.papermc.io/repository/maven-public/" }
+    maven {
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+        content {
+                    includeGroup 'org.spigotmc'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains:annotations:23.0.0"
+
+    compileOnly "org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT"
+
+    api "net.dv8tion:JDA:5.0.0-alpha.22"
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    finalizedBy shadowJar
+}
