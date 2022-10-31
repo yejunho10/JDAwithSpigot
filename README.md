@@ -1,2 +1,2 @@
-# MagicPlugin3
+# JDAWithSpigot
 https://youtu.be/CX-stIb-p4A
